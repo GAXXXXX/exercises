@@ -1,0 +1,78 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: #000;
+    height: 44px;
+    padding: 0 18px;
+}
+
+#toggler {
+    display: none;
+}
+
+.hamburger-contain {
+    display: block;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 16px;
+}
+
+.hamburger-contain span {
+    display: block;
+    height: 1px;
+    background-color: #fff;
+    position: relative;
+    transition: transform .3s ease-in-out, top .3s ease-in-out .3s;
+    top: 0;
+}
+
+.hamburger-contain span:nth-child(2) {
+    margin-top: 7px;
+}
+
+#toggler:checked+label .hamburger-contain span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 4px;
+    transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+}
+
+#toggler:checked+label .hamburger-contain span:nth-child(2) {
+    transform: rotate(-45deg);
+    top: -4px;
+    transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+}
+
+
+/* 
+    transform:  2D或3D转换，旋转、缩放、移动、倾斜
+
+    transform有坐标轴哦！
+
+    transition:   动画过渡   有四个属性
+*/
+
+.nav-items {
+    background-color: rgba(0, 0, 0, .82);
+    width: 100%;
+    /* calc()  符号前后空格 */
+    height: calc(100vh - 44px);
+    /* 脱离文档流 */
+    position: absolute;
+    top: 44px;
+    left: 0;
+    transform: scaleY(0);
+    transition: transform .3s ease-in-out;
+    transform-origin: 0 0;
+}
+
+#toggler:checked~.nav-items {
+    transform: scaleY(1);
+}
+
+ul li {
+    color: #fff;
+}
