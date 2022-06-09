@@ -1,0 +1,60 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-10 10:43:10
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-10 23:13:22
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            /* display: block; */
+            position: relative;
+            width: 250px;
+            height: 40px;
+            border: 2px solid slategray;
+        }
+        
+        div::before {
+            position: absolute;
+            top: 12px;
+            left: 220px;
+            content: "";
+            /* 伪类元素是行内元素 */
+            display: block;
+            width: 10px;
+            height: 10px;
+            border: 2px solid teal;
+            border-top: transparent;
+            border-left: transparent;
+            transform: rotate(45deg);
+            transition: all .5s;
+        }
+        
+        div:hover::before {
+            transform: rotate(225deg);
+            top: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>

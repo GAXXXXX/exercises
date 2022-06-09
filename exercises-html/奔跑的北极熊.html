@@ -1,0 +1,99 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-11 14:44:17
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-11 17:08:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+        
+        .black {
+            position: relative;
+            width: 100%;
+            height: 569px;
+            background: url(/images/bg2.png);
+            animation: black 60s linear infinite;
+        }
+        
+        .white {
+            position: absolute;
+            width: 100%;
+            height: 336px;
+            top: 186px;
+            background: url(/images/bg1.png);
+            animation: white 40s linear infinite;
+        }
+        
+        .bear {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            top: 220px;
+            background: url(/images/bear.png) no-repeat;
+            animation: bear .5s steps(8) infinite, move 8s linear forwards;
+        }
+        
+        @keyframes bear {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+        
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        @keyframes white {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -3840px 0;
+            }
+        }
+        
+        @keyframes black {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -3840px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="black">
+        <div class="white">
+            <div class="bear"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+</html>
+
+</html>

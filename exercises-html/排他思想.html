@@ -1,0 +1,108 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-02-24 21:48:35
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-10 23:47:56
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* .nav li {
+            color: green;
+        }
+        
+        .nav li:first-child {
+            color: blanchedalmond;
+        }
+        
+        span { */
+        /* float: left; */
+        /* width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 20px;
+            background-color: green;
+        }
+        
+        p { */
+        /* float: left; */
+        /* display: none;
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        } */
+        
+        body {
+            background: url(../images/1.jpg) no-repeat center top;
+            /* 背景图片不会随着页面的滚动而滚动 */
+            background-attachment: fixed;
+            /* 会保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小 */
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .baidu {
+            overflow: hidden;
+            margin: 100px auto;
+            background-color: burlywood;
+            width: 330px;
+        }
+        
+        .baidu li {
+            float: left;
+            margin: 5px;
+        }
+        
+        .baidu img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul class="nav">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <span>cbcud bliad vajbdvduj d</span>
+
+    <p>d dia ajf ab jiEBV Id vjadhvad vavdvjbdgviu</p> -->
+
+    <ul class="baidu">
+        <li><img src="../images/1.jpg"></li>
+        <li><img src="../images/2.jpg"></li>
+        <li><img src="../images/3.jpg"></li>
+    </ul>
+
+    <script>
+        var imgs = document.querySelectorAll('ul.baidu li img');
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].onmouseover = function() {
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+        }
+    </script>
+</body>
+
+</html>

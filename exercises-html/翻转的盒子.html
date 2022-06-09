@@ -1,0 +1,91 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-11 17:28:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-11 22:46:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transition: all .5s;
+        }
+        /* .container:hover {
+            transform: rotateY(180deg);
+        } */
+        
+        .box:hover .container {
+            transform: rotateY(180deg);
+        }
+        
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            font-size: 20px;
+            line-height: 200px;
+            text-align: center;
+            color: azure;
+            /* back不显示方法一：backface-visibility: hidden; 会有抽搐的情况*/
+            /* backface-visibility: hidden; */
+        }
+        
+        .front {
+            background-color: thistle;
+            /* 方法一，方法二时可不加，但方法二不加时会有抽搐 */
+            z-index: 1;
+        }
+        
+        .back {
+            background-color: wheat;
+            /* 配合方法一 */
+            /* transform: rotateY(180deg); */
+            /* back不显示方法二：加上 translateZ(1px)
+                原因：两个盒子层叠在一起，即两个盒子在同一水平面上，
+                因此只需要让两个盒子间距拉开，使其中一个盒子的z轴距离大于1px
+            */
+            transform: rotateY(180deg) translateZ(1px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 抽搐的原因：
+        旋转的时候，盒子侧过来了，点击的范围变小，就不触发hover
+        解决：
+    -->
+    <!-- 解决抽搐的办法：
+        用box将container包裹，设置鼠标经过box是的hover效果
+    -->
+    <!-- <div class="container">
+        <div class="front">Hi~</div>
+        <div class="back">Have a good night</div>
+    </div> -->
+    <div class="box">
+        <div class="container">
+            <div class="front">Hi~</div>
+            <div class="back">Have a good night</div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+</html>

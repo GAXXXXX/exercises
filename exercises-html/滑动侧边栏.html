@@ -1,0 +1,115 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-04-21 23:23:27
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-04-22 00:34:53
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* float 不压文字 */
+        /* float: left; */
+        
+        .slidebar {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            right: 0;
+            bottom: 80px;
+            color: grey;
+            cursor: pointer;
+        }
+        
+        .slidebar .con {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 40px;
+            background-color: thistle;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slidebar">
+        <span class="arrow">←</span>
+        <div class="con">问题反馈</div>
+    </div>
+
+    <script>
+        var slidebar = document.querySelector('.slidebar');
+        var arrow = document.querySelector('.arrow');
+        var con = document.querySelector('.con');
+
+        var conLeft = con.offsetLeft;
+
+        //mouseenter mouseleave 不冒泡
+
+
+        /* 
+            匀速变化和变速变化的停止条件是不一样的
+        */
+
+        // slidebar.addEventListener('mouseenter', function() {
+        //     clearInterval(timer);
+        //     var timer = setInterval(function() {
+        //         if (conLeft - con.offsetLeft >= 110) {
+        //             clearInterval(timer);
+        //             arrow.innerHTML = '→';
+        //         }
+        //         con.style.left = con.offsetLeft - 1 + 'px';
+        //     }, 15)
+        // })
+        // slidebar.addEventListener('mouseleave', function() {
+        //     clearInterval(timer1);
+        //     var timer1 = setInterval(function() {
+        //         if (conLeft - con.offsetLeft <= 0) {
+        //             clearInterval(timer1);
+        //             arrow.innerHTML = '←';
+        //         }
+        //         con.style.left = con.offsetLeft + 1 + 'px';
+        //     }, 15)
+        // })
+
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                // 步长值写到定时器的里面  因为步长是会变化的！！！
+                let step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15);
+        }
+
+        slidebar.addEventListener('mouseenter', function() {
+            animate(con, -110, function() {
+                arrow.innerHTML = '→';
+            })
+        })
+
+        slidebar.addEventListener('mouseleave', function() {
+            animate(con, 0, function() {
+                arrow.innerHTML = '←';
+            })
+        })
+    </script>
+</body>
+
+</html>

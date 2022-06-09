@@ -1,0 +1,52 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-04-10 22:18:22
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-04-12 23:05:37
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea></textarea>
+
+    <button>评论</button>
+
+    <ul></ul>
+
+    <script>
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+
+        btn.onclick = function() {
+            var li = document.createElement('li');
+            li.innerHTML = text.value + '<a href="javascript:;"> 删除</a>';
+            ul.appendChild(li);
+            //删除节点 方法一
+            // li.children[0].onclick = function() {
+            //     ul.removeChild(li);
+            // }
+
+            //方法二
+            var as = document.querySelectorAll('a');
+            for (let i = 0; i < as.length; i++) {
+                as[i].onclick = function() {
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

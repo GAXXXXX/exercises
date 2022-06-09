@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ccc;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.c-nav {
+    position: relative;
+    width: 900px;
+    height: 42px;
+    margin: 100px auto;
+    line-height: 42px;
+    background: #fff url(./images/rss.png) no-repeat right center;
+    /* background-color:#fff ;  可以写到一起的呀 */
+    border-radius: 5px;
+}
+
+.c-nav ul {
+    /* 不加 position: absolute; 筋斗云会遮住文字 为什么？ */
+    /* position: absolute; 会压住所有内容 */
+    /* 详细的区看css的position叠加规则 */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.c-nav ul li {
+    float: left;
+    width: 83px;
+    text-align: center;
+}
+
+.c-nav ul li a {
+    display: inline-block;
+    width: 100%;
+}
+
+.c-nav ul .current a {
+    /* 设置li中的文字和设置li中a的文字颜色是不一样的 */
+    color: #689f38;
+}
+
+.c-nav ul li a:hover {
+    color: #fff;
+}
+
+.c-nav .cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 83px;
+    height: 42px;
+    background: url(./images/cloud.gif) no-repeat;
+}

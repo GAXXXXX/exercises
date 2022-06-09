@@ -1,0 +1,66 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-17 14:02:48
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-17 18:43:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./animate.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            var cloud = document.querySelector('.cloud');
+            var lis = document.querySelectorAll('.c-nav ul li');
+
+            var pos = 0;
+
+            // 给li绑定事件
+            for (let i = 0; i < lis.length; i++) {
+                // 鼠标经过，li的offsetLeft即为目标值
+                lis[i].addEventListener('mouseenter', function() {
+                        animate(cloud, this.offsetLeft);
+                    })
+                    // 鼠标离开时，回到默认的点击位置
+                lis[i].addEventListener('mouseleave', function() {
+                        animate(cloud, pos);
+                    })
+                    // 每次点击后记录该位置，作为筋斗云的起始位置
+                lis[i].addEventListener('click', function() {
+                    pos = this.offsetLeft;
+                    // 排他思想，动态添加类名
+                    for (let j = 0; j < lis.length; j++) {
+                        lis[j].className = '';
+                    }
+                    this.className = "current";
+                })
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="c-nav">
+        <span class="cloud"></span>
+        <ul>
+            <li class="current"><a href="#">首页新闻</a></li>
+            <li><a href="#">师资力量</a></li>
+            <li><a href="#">活动策划</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">招聘信息</a></li>
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">我是佩奇</a></li>
+            <li><a href="#">啥是佩奇</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

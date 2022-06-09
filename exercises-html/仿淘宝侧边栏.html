@@ -1,0 +1,131 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-04-19 23:54:15
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-17 13:53:24
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .w {
+            width: 90%;
+            margin: 10px auto;
+        }
+        
+        .header {
+            height: 80px;
+            background-color: #64363C;
+        }
+        
+        .banner {
+            height: 250px;
+            background-color: #A5A051;
+        }
+        
+        .main {
+            height: 1200px;
+            background-color: #B54434;
+        }
+        
+        .aside {
+            width: 50px;
+            height: 160px;
+            background-color: #2B5F75;
+            position: absolute;
+            top: 300px;
+            left: 95%;
+            margin: 0 10px;
+        }
+        
+        span {
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header w">header区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">main区域</div>
+    <div class="aside">
+        <span class="goBack">top</span>
+    </div>
+
+    <script>
+        var aside = document.querySelector('.aside');
+        var banner = document.querySelector('.banner');
+        var main = document.querySelector('.main');
+        var goBack = document.querySelector('.goBack');
+
+        //banner.offsetTop是被卷去的头部高度，要写在滚动的外面，因为offset是动态获取值的
+        var bannerTop = banner.offsetTop;
+
+        var asideTop = aside.offsetTop;
+
+        //最后需要固定的定位（不让侧边栏跳动）
+        var scrollTop = asideTop - bannerTop;
+
+        var mainTop = main.offsetTop;
+
+        //页面滚动事件
+        document.addEventListener('scroll', function() {
+            if (window.pageYOffset >= bannerTop) {
+                aside.style.position = 'fixed'; //offset不带单位 scroll也不带单位
+                aside.style.top = scrollTop + 'px';
+            } else {
+                aside.style.position = 'absolute';
+                aside.style.top = '300px';
+            }
+
+            if (window.pageYOffset >= mainTop) {
+                goBack.style.display = 'block';
+            } else {
+                goBack.style.display = 'none';
+            }
+        })
+
+        //点击top返回顶部
+        goBack.addEventListener('click', function() {
+            // 滚动窗口至文档的特定位置 不带单位
+            // window.scrollTo(0, 0);
+
+            // 为了更好的视觉效果，使用动画
+            animate(window, 0);
+        })
+
+        function animate(obj, target, callback) {
+
+            clearInterval(obj.timer);
+
+            obj.timer = setInterval(function() {
+
+                // console.log(window.pageYOffset);
+
+                let step = (target - window.pageYOffset) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (target == window.pageYOffset) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+
+                window.scrollTo(0, window.pageYOffset + step);
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>

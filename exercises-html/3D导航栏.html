@@ -1,0 +1,92 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-11 22:53:51
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-11 23:42:17
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            list-style: none;
+            width: 150px;
+            height: 50px;
+            margin: 20px;
+            line-height: 50px;
+            font-size: 16px;
+            text-align: center;
+            /* box也有旋转透视效果，直接加在li上 */
+            perspective: 300px;
+        }
+        
+        .box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all .4s;
+        }
+        
+        .front,
+        .bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: thistle;
+        }
+        
+        .front {
+            /* 中心点一直没变，在x轴上的，所以box的旋转还是原来的中心点，故移动front（立方体） */
+            transform: translateZ(25px);
+        }
+        
+        .bottom {
+            /* 在中心点不改变的情况下，先写translate后写rotate */
+            /* 旋转的时候该元素的整个坐标轴会一起旋转 */
+            transform: translateY(50%) rotateX(-90deg);
+            /* 以下是先旋转后移动的写法 */
+            transform: rotateX(-90deg) translateZ(25px);
+        }
+        
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">Hi,GAX</div>
+                <div class="bottom">Good night~</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">Hi,GAX</div>
+                <div class="bottom">Good night~</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">Hi,GAX</div>
+                <div class="bottom">Good night~</div>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>
+
+</html>

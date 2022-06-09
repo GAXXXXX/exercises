@@ -1,0 +1,292 @@
+/* main */
+
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+}
+
+.focus {
+    position: relative;
+    overflow: hidden;
+    width: 720px;
+    height: 100%;
+}
+
+.focus ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+}
+
+.focus ul li {
+    /* 图片的宽度是721px，滚动时会有错位 */
+    width: 720px;
+    float: left;
+}
+
+.focus ul li img {
+    width: 100%;
+}
+
+.focus .arrow-l,
+.focus .arrow-r {
+    display: none;
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, .3);
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    z-index: 5;
+}
+
+.focus .arrow-l {
+    left: 0;
+}
+
+.focus .arrow-r {
+    right: 0;
+}
+
+.circle {
+    position: absolute;
+    bottom: 15px;
+    left: 50px;
+}
+
+.circle li {
+    float: left;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.circle .current {
+    background-color: #fff;
+}
+
+.newflash {
+    width: 250px;
+    height: 100%;
+}
+
+.news {
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+
+.news .news-hd {
+    height: 33px;
+    line-height: 33px;
+    padding: 0 15px;
+    border-bottom: 1px dotted #e4e4e4;
+}
+
+.news .news-hd h4 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.news .news-hd .more::after {
+    font-family: 'icomoon';
+    content: '\e920';
+    vertical-align: middle;
+}
+
+.news .news-bd ul {
+    padding: 5px 15px 0;
+}
+
+.news .news-bd ul li {
+    height: 24px;
+    line-height: 24px;
+    /* 设置文字在一行显示 */
+    white-space: nowrap;
+    overflow: hidden;
+    /* 设置文字超出时用...显示,需要与overflow:hidden;一起使用 */
+    text-overflow: ellipsis;
+}
+
+.lifeservice {
+    height: 209px;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    overflow: hidden;
+}
+
+.lifeservice ul {
+    width: 252px;
+}
+
+.lifeservice ul li {
+    float: left;
+    position: relative;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+}
+
+.lifeservice ul li i {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    background: url(../images/icons.png) no-repeat -15px -15px;
+}
+
+.lifeservice .lifeservice_hotwords::after {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    content: '\e908';
+    font-family: 'icomoon';
+    color: thistle;
+}
+
+.bargin {
+    height: 75px;
+    margin-top: 6px;
+}
+
+.bargin img {
+    width: 100%;
+}
+
+
+/* recom */
+
+.recom {
+    height: 163px;
+    margin-top: 12px;
+}
+
+.recom_hd {
+    width: 206px;
+    height: 100%;
+    background-color: #5c5251;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.recom_hd i {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: url(../images/recommend.png) no-repeat center;
+}
+
+.recom_bd {
+    width: 992px;
+    height: 100%;
+    background-color: #ebebeb;
+}
+
+.recom_bd ul {
+    float: right;
+}
+
+.recom_bd ul li {
+    float: left;
+    width: 243px;
+    height: 143px;
+    margin: 10px 0;
+    border-right: 1px solid #ccc;
+    background: url(../upload/recom_pic.jpg) no-repeat center;
+}
+
+.recom_bd ul li:last-child {
+    border-right: 0;
+}
+
+
+/* floor */
+
+.floor .w {
+    margin-top: 30px;
+}
+
+.box_hd {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 2px solid #c81623;
+}
+
+.box_hd h4 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #c81623;
+}
+
+.box_hd ul li {
+    float: left;
+}
+
+.box_hd ul li a {
+    padding: 0 15px;
+}
+
+.box_bd {
+    height: 361px;
+    background-color: #f9f9f9;
+}
+
+.tab_content>div {
+    height: 361px;
+}
+
+.col_210 {
+    width: 210px;
+}
+
+.col_210 ul li {
+    float: left;
+    width: 85px;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 14px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.col_210 a {
+    margin-left: 14px;
+}
+
+.col_329 {
+    width: 329px;
+    height: 361px;
+}
+
+.col_220 {
+    width: 220px;
+    height: 361px;
+}
+
+.col_221 {
+    width: 221px;
+    height: 361px;
+}
+
+.col_220 a,
+.col_221 a {
+    display: block;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.bb a:nth-child(n+2) {
+    border-right: 0;
+}

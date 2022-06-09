@@ -1,0 +1,93 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-12 11:37:11
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-12 22:33:37
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 子盒子和孙子盒子都有旋转效果 */
+            perspective: 1000px;
+        }
+        
+        section {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 120px auto;
+            /* 如果只有一层旋转透视放在父盒子里 */
+            /* perspective: 1000px; */
+            transform-style: preserve-3d;
+            animation: move 5s linear infinite;
+        }
+        
+        section:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: rotateY(0);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+        
+        section div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(/images/dog.jpg) no-repeat;
+        }
+        
+        section div:nth-child(1) {
+            transform: rotateY(0deg) translateZ(300px);
+        }
+        
+        section div:nth-child(2) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+        
+        section div:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+        
+        section div:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+        
+        section div:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+        
+        section div:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+</html>
